@@ -1,0 +1,16 @@
+default_timeout_seconds = 120
+max_timeout_seconds = 600
+default_output_bytes = 200000
+max_output_bytes = 1000000
+
+allowed_command_regexes = [
+  "^ipconfig /flushdns$",
+  "^ipconfig /displaydns$",
+  "^ipconfig /all$",
+  "^get-service( .*)?$",
+  "^get-process( .*)?$",
+  "^restart-service [a-z0-9_.-]+$",
+  "^winget (list|show|upgrade)( .*)?$",
+  "^sfc /scannow$",
+  "^dism /online /cleanup-image /(scanhealth|restorehealth)$",
+]
