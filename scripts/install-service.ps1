@@ -1,8 +1,8 @@
 $ErrorActionPreference = "Stop"
 
 $Root = Split-Path -Parent $PSScriptRoot
-$BuiltBrokerExe = Join-Path $Root "target\debug\admin-broker.exe"
-$BuiltMcpExe = Join-Path $Root "target\debug\admin-mcp-server.exe"
+$BuiltBrokerExe = Join-Path $Root "target\release\admin-broker.exe"
+$BuiltMcpExe = Join-Path $Root "target\release\admin-mcp-server.exe"
 $ServiceName = "AdminPowerShellMcpBroker"
 $BinDir = "C:\Program Files\admin-powershell-mcp"
 $DataDir = "C:\ProgramData\admin-powershell-mcp"
@@ -10,10 +10,10 @@ $BrokerExe = Join-Path $BinDir "admin-broker.exe"
 $McpExe = Join-Path $BinDir "admin-mcp-server.exe"
 
 if (-not (Test-Path $BuiltBrokerExe)) {
-    throw "找不到 $BuiltBrokerExe。请先运行 cargo build。"
+    throw "找不到 $BuiltBrokerExe。请先运行 cargo build --release。"
 }
 if (-not (Test-Path $BuiltMcpExe)) {
-    throw "找不到 $BuiltMcpExe。请先运行 cargo build。"
+    throw "找不到 $BuiltMcpExe。请先运行 cargo build --release。"
 }
 
 sc.exe stop $ServiceName | Out-Null
